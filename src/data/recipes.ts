@@ -273,5 +273,98 @@ export const recipes: Recipe[] = [
       "Serve with rice and tzatziki sauce.",
     ],
   },
+  {
+    slug: "garlic-fried-chicken",
+    title: "Garlic Fried Chicken",
+    image: "recipes/garlic-fried-chicken.png",
+    ratings: [
+      { name: "Vanessa", value: 5 },
+      { name: "Jake", value: 4 },
+    ],
+    ingredients: [
+      "Chicken nibbles — 500 g",
+      "Garlic — 10 cloves",
+      "Tapioca flour — 3 tbsp",
+      "Marinate sauce:",
+      "Garlic — 6 cloves",
+      "Shallots — 3 pcs",
+      "Coriander seed powder — 1 tbsp",
+      "Water — 100 ml",
+      "Salt and magic",
+      "Chicken powder",
+    ],
+    directions: [
+      "Marinate chicken nibbles with marinate sauce for 12 hours.",
+      "Put tapioca flour and mix with hand.",
+      "Deep fry the chicken around 8 mins or till golden brown.",
+      "Then smash the rest of garlic (with skin) and deep fry.",
+      "Take the chicken out and rest it.",
+      "Double deep fry the chicken for another 2 mins to make it extra crispy.",
+    ],
+  },
+  {
+    slug: "curry-omelette",
+    title: "Curry Omelette",
+    image: "recipes/curry-omelette.png",
+    ratings: [
+      { name: "Vanessa", value: 3.5 },
+      { name: "Jake", value: 4 },
+    ],
+    ingredients: [
+      "Eggs — 3 pcs",
+      "Mushroom",
+      "Shallots",
+      "Spinach",
+      "Curry powder",
+      "Magic seasoning",
+      "Onion powder",
+      "Milk",
+    ],
+    directions: [
+      "Cook the mushroom in the pan.",
+      "Put the shallots and spinach.",
+      "Mix the seasoning with the eggs in a separate bowl and beat it.",
+      "Pour the mixture to the pan and just let it set.",
+    ],
+  },
+  {
+    slug: "creamy-potato-bake",
+    title: "Creamy Potato Bake",
+    image: "recipes/creamy-potato-bake.png",
+    ratings: [
+      { name: "Vanessa", value: 4 },
+      { name: "Jake", value: 3 },
+    ],
+    ingredients: [
+      "Dutch cream potatoes",
+      "French Onion Soup Mix",
+      "Cream — 600 ml",
+    ],
+    directions: [
+      "Peel potato, cut, put on the pan.",
+      "Mix cream and French onion, pour on top.",
+      "Cover in oven for 30 mins, uncover for 10 min at 200°C.",
+    ],
+  },
+  {
+    slug: "bakwan",
+    title: "Bakwan",
+    image: "recipes/bakwan.png",
+    ratings: [
+      { name: "Vanessa", value: 5 },
+      { name: "Jake", value: 3 },
+    ],
+    ingredients: [
+      "Canned corn or Mixed salad slices like carrot, cabbage, spring onion, bean sprouts",
+      "Bakwan flour packet — 1 packet",
+      "Water",
+      "Oil",
+    ],
+    directions: [
+      "Mix Bakwan flour packet with water (see instruction).",
+      "Put the corn or mixed vegetable salad in the mixture.",
+      "Scoop it and deep fry till golden brown.",
+    ],
+  },
 ];
 
