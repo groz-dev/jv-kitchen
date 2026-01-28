@@ -15,6 +15,7 @@ if (!recipe) {
 
 const prev = recipes[(recipeIndex - 1 + recipes.length) % recipes.length];
 const next = recipes[(recipeIndex + 1) % recipes.length];
+const base = import.meta.env.BASE_URL;
 
 function stars(value: number) {
   const full = Math.max(0, Math.min(5, Math.round(value)));
@@ -25,7 +26,7 @@ function stars(value: number) {
 <Layout title={`${recipe.title} • JV Kitchen`}>
   <div class="mb-8 flex items-center justify-between gap-4">
     <a
-      href="/"
+      href={base}
       class="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-sm shadow-soft ring-1 ring-black/5 hover:bg-white"
     >
       <span aria-hidden="true">←</span>
@@ -34,14 +35,14 @@ function stars(value: number) {
 
     <div class="flex items-center gap-2">
       <a
-        href={`/recipes/${prev.slug}`}
+        href={`${base}recipes/${prev.slug}/`}
         class="rounded-full bg-white/70 px-4 py-2 text-sm shadow-soft ring-1 ring-black/5 hover:bg-white"
         aria-label="Previous recipe"
       >
         Prev
       </a>
       <a
-        href={`/recipes/${next.slug}`}
+        href={`${base}recipes/${next.slug}/`}
         class="rounded-full bg-white/70 px-4 py-2 text-sm shadow-soft ring-1 ring-black/5 hover:bg-white"
         aria-label="Next recipe"
       >
@@ -52,8 +53,8 @@ function stars(value: number) {
 
   <article
     class="relative overflow-hidden rounded-xl2 bg-white/70 p-6 shadow-soft ring-1 ring-black/5 sm:p-10"
-    data-prev={`/recipes/${prev.slug}`}
-    data-next={`/recipes/${next.slug}`}
+    data-prev={`${base}recipes/${prev.slug}/`}
+    data-next={`${base}recipes/${next.slug}/`}
   >
     <div class="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-cocoa/10 blur-3xl"></div>
     <div class="pointer-events-none absolute -left-44 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-cocoa/5 blur-3xl"></div>

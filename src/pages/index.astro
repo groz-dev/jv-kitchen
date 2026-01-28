@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { recipes } from "../data/recipes";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="JV Kitchen">
@@ -20,7 +22,7 @@ import { recipes } from "../data/recipes";
   <section class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
     {recipes.map((r) => (
       <a
-        href={`/recipes/${r.slug}`}
+        href={`${base}recipes/${r.slug}/`}
         class="group relative overflow-hidden rounded-xl2 bg-white/70 shadow-soft ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-white"
       >
         <div class="absolute inset-0 opacity-0 transition group-hover:opacity-100" aria-hidden="true">
