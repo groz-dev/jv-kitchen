@@ -75,5 +75,29 @@ export const recipes: Recipe[] = [
       "Assemble: pasta, yogurt, minced meat, butter mixture, cherry tomato, fresh parsley, and feta cheese.",
     ],
   },
+  {
+    slug: "schnitzel-sandwich",
+    title: "Schnitzel Sandwich",
+    image: "recipes/schnitzel-sandwich.png",
+    ratings: [
+      { name: "Vanessa", value: 3 },
+      { name: "Jake", value: 3 },
+    ],
+    ingredients: [
+      "Turkish bread",
+      "Pesto",
+      "Chicken schnitzel",
+      "Mozzarella",
+      "Tomatoes",
+      "Basil",
+      "Rocket salad",
+    ],
+    directions: [
+      "Cook schnitzel.",
+      "Torch mozzarella.",
+      "Pan-fry tomatoes with basil.",
+      "Arrange the sandwich with bread, pesto, schnitzel, mozzarella, tomatoes with basil, and rocket salad.",
+    ],
+  },
 ];
 
