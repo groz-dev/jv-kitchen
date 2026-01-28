@@ -1,0 +1,22 @@
+{
+  "name": "jv-kitchen",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "5.16.15"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "6.0.2",
+    "autoprefixer": "10.4.23",
+    "postcss": "8.5.6",
+    "tailwindcss": "3.4.19",
+    "typescript": "^5.0.0"
+  }
+}
+

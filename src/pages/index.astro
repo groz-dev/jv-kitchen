@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { recipes } from "../data/recipes";
+---
+
+<Layout title="JV Kitchen">
+  <header class="mb-10 flex items-end justify-between gap-6">
+    <div>
+      <h1 class="font-serif text-5xl tracking-tight text-ink sm:text-6xl">JV Kitchen</h1>
+      <p class="mt-2 max-w-xl text-pretty text-sm text-neutral-700 sm:text-base">
+        A tiny, offline-authored recipe book. Tap a recipe to view it full-screen, then swipe left/right.
+      </p>
+    </div>
+    <div class="hidden sm:block text-right text-xs text-neutral-600">
+      <div class="font-medium">Recipes</div>
+      <div class="text-2xl font-serif text-cocoa">{recipes.length}</div>
+    </div>
+  </header>
+
+  <section class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {recipes.map((r) => (
+      <a
+        href={`/recipes/${r.slug}`}
+        class="group relative overflow-hidden rounded-xl2 bg-white/70 shadow-soft ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-white"
+      >
+        <div class="absolute inset-0 opacity-0 transition group-hover:opacity-100" aria-hidden="true">
+          <div class="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-cocoa/10 blur-2xl"></div>
+        </div>
+
+        <div class="flex items-center gap-4 p-4">
+          <div class="grid h-14 w-14 place-items-center overflow-hidden rounded-xl bg-sand ring-1 ring-black/5">
+            <img src={r.image} alt="" class="h-full w-full object-cover" loading="lazy" />
+          </div>
+          <div class="min-w-0">
+            <div class="font-serif text-2xl tracking-tight">{r.title}</div>
+            <div class="mt-1 text-xs text-neutral-600">
+              {r.ingredients.length} ingredients • {r.directions.length} steps
+            </div>
+          </div>
+        </div>
+      </a>
+    ))}
+  </section>
+</Layout>
+
