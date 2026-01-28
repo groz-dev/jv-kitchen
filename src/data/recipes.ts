@@ -16,7 +16,7 @@ export const recipes: Recipe[] = [
   {
     slug: "rendang",
     title: "Rendang",
-    image: "/recipes/rendang.svg",
+    image: "recipes/rendang.svg",
     ratings: [
       { name: "Vanessa", value: 4 },
       { name: "Jake", value: 5 },

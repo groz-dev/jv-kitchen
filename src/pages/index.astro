@@ -2,7 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { recipes } from "../data/recipes";
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const withBase = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
 ---
 
 <Layout title="JV Kitchen">
@@ -22,7 +23,7 @@ const base = import.meta.env.BASE_URL;
   <section class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
     {recipes.map((r) => (
       <a
-        href={`${base}recipes/${r.slug}/`}
+        href={withBase(`recipes/${r.slug}/`)}
         class="group relative overflow-hidden rounded-xl2 bg-white/70 shadow-soft ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-white"
       >
         <div class="absolute inset-0 opacity-0 transition group-hover:opacity-100" aria-hidden="true">
@@ -31,7 +32,7 @@ const base = import.meta.env.BASE_URL;
 
         <div class="flex items-center gap-4 p-4">
           <div class="grid h-14 w-14 place-items-center overflow-hidden rounded-xl bg-sand ring-1 ring-black/5">
-            <img src={r.image} alt="" class="h-full w-full object-cover" loading="lazy" />
+            <img src={withBase(r.image)} alt="" class="h-full w-full object-cover" loading="lazy" />
           </div>
           <div class="min-w-0">
             <div class="font-serif text-2xl tracking-tight">{r.title}</div>
