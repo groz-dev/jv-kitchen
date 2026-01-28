@@ -64,18 +64,20 @@ function stars(value: number) {
       <div>
         <h1 class="font-serif text-6xl tracking-tight sm:text-7xl">{recipe.title.toUpperCase()}</h1>
 
-        <section class="mt-6 max-w-md rounded-xl2 bg-sand/60 p-4 ring-1 ring-black/5">
-          <div class="font-serif text-3xl text-cocoa">Rating</div>
-          <dl class="mt-2 space-y-2 text-sm">
-            {recipe.ratings.map((r) => (
-              <div class="flex items-center justify-between gap-4">
-                <dt class="text-neutral-700">{r.name}:</dt>
-                <dd class="font-serif text-xl tracking-wide text-cocoa" aria-label={`${r.value} out of 5`}>
-                  {stars(r.value)}
-                </dd>
-              </div>
-            ))}
-          </dl>
+        <section class="mt-6 max-w-md">
+          <h2 class="font-serif text-5xl tracking-tight text-cocoa">Rating</h2>
+          <div class="mt-4 rounded-xl2 bg-sand/40 p-6 ring-1 ring-black/5">
+            <dl class="space-y-2 text-base">
+              {recipe.ratings.map((r) => (
+                <div class="flex items-center gap-2">
+                  <dt class="text-neutral-700">{r.name}:</dt>
+                  <dd class="font-serif text-xl tracking-wide text-cocoa" aria-label={`${r.value} out of 5`}>
+                    {stars(r.value)}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </section>
       </div>
 
@@ -98,7 +100,7 @@ function stars(value: number) {
     </section>
 
     <section class="mt-12">
-      <h2 class="font-serif text-6xl tracking-tight text-cocoa">Directions</h2>
+      <h2 class="font-serif text-5xl tracking-tight text-cocoa">Directions</h2>
       <div class="mt-4 rounded-xl2 bg-sand/40 p-6 ring-1 ring-black/5">
         <ol class="list-decimal space-y-2 pl-5 text-sm text-neutral-800">
           {recipe.directions.map((step) => (
