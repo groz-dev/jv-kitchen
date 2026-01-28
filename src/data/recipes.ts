@@ -44,5 +44,36 @@ export const recipes: Recipe[] = [
       "Pour in coconut milk and cook on medium heat until most of the liquid is reduced and the cream has turned dark brown.",
     ],
   },
+  {
+    slug: "turkish-pasta",
+    title: "Turkish Pasta",
+    image: "recipes/turkish-pasta.png",
+    ratings: [
+      { name: "Vanessa", value: 4 },
+      { name: "Jake", value: 4 },
+    ],
+    ingredients: [
+      "Minced meat",
+      "Onion",
+      "Curry powder",
+      "Onion powder, paprika, salt, pepper, magic",
+      "Shell pasta",
+      "Butter",
+      "Yogurt",
+      "Cherry tomato",
+      "Parsley",
+      "Feta cheese",
+    ],
+    directions: [
+      "Pan-fry minced meat and diced onion.",
+      "Add a little bit of curry powder.",
+      "Add onion powder, paprika, salt, pepper, and magic seasoning.",
+      "Pan-fry until crispy.",
+      "Boil shell pasta (or any pasta you like).",
+      "In a different pan, add butter and paprika.",
+      "Mix yogurt with 1–2 cloves of minced garlic and salt.",
+      "Assemble: pasta, yogurt, minced meat, butter mixture, cherry tomato, fresh parsley, and feta cheese.",
+    ],
+  },
 ];
 
