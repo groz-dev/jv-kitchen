@@ -99,5 +99,36 @@ export const recipes: Recipe[] = [
       "Arrange the sandwich with bread, pesto, schnitzel, mozzarella, tomatoes with basil, and rocket salad.",
     ],
   },
+  {
+    slug: "sushi-bake",
+    title: "Sushi Bake",
+    image: "recipes/sushi-bake.png",
+    ratings: [
+      { name: "Vanessa", value: 3 },
+      { name: "Jake", value: 2 },
+    ],
+    ingredients: [
+      "Rice — 2 cups",
+      "Salmon — 250 g",
+      "Crab kani meat — 4 pcs",
+      "Soy sauce",
+      "Kewpie mayo",
+      "Siracha",
+      "Furikake",
+      "Green onions",
+      "Salt and pepper",
+      "Magic seasoning",
+    ],
+    directions: [
+      "Cook rice.",
+      "Preheat oven to 200°C.",
+      "Cut salmon and crab kani meat into bite pieces.",
+      "Season salmon and crab with 1 tbsp soy sauce, lots of mayo, some siracha, salt, pepper, magic seasoning, furikake, and chopped green onions.",
+      "After the rice is cooked, put rice into a glass baking dish and mix with a lot of furikake and 1 tbsp of sushi seasoning/mirin (optional).",
+      "Press the rice flat and put the seasoned salmon mixture on top.",
+      "Drizzle more mayo, siracha, green onions, and a little bit more furikake over the top.",
+      "Bake for 15 minutes.",
+    ],
+  },
 ];
 
