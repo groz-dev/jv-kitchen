@@ -6,10 +6,10 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
 const withBase = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
 ---
 
-<Layout title="JV Kitchen">
-  <header class="mb-10 flex items-end justify-between gap-6">
+<Layout title="home-page">
+  <header class="mb-6 flex items-end justify-between gap-6">
     <div>
-      <h1 class="font-serif text-5xl tracking-tight text-ink sm:text-6xl">JV Kitchen</h1>
+      <h1 class="font-serif text-5xl tracking-tight text-ink sm:text-6xl">V&J Kitchen</h1>
       <p class="mt-2 max-w-xl text-pretty text-sm text-neutral-700 sm:text-base">
         A tiny, offline-authored recipe book. Tap a recipe to view it full-screen, then swipe left/right.
       </p>
@@ -20,29 +20,168 @@ const withBase = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
     </div>
   </header>
 
-  <section class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-    {recipes.map((r) => (
-      <a
-        href={withBase(`recipes/${r.slug}/`)}
-        class="group relative overflow-hidden rounded-xl2 bg-white/70 shadow-soft ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-white"
+  <section
+    aria-label="Recipe view options"
+    class="mb-6 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm"
+  >
+    <div class="text-neutral-700">
+      <span class="font-medium text-cocoa">View:</span>
+      <span class="ml-1 text-neutral-600">switch how recipes are shown</span>
+    </div>
+    <div
+      class="inline-flex items-center gap-1 rounded-full bg-sand/80 p-1 ring-1 ring-black/5"
+      data-view-toggle
+    >
+      <button
+        type="button"
+        class="view-toggle-button"
+        data-view-button="list"
+        aria-pressed="false"
       >
-        <div class="absolute inset-0 opacity-0 transition group-hover:opacity-100" aria-hidden="true">
-          <div class="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-cocoa/10 blur-2xl"></div>
-        </div>
+        List
+      </button>
+      <button
+        type="button"
+        class="view-toggle-button"
+        data-view-button="card"
+        aria-pressed="false"
+      >
+        Cards
+      </button>
+      <button
+        type="button"
+        class="view-toggle-button"
+        data-view-button="tile"
+        aria-pressed="false"
+      >
+        Tiles
+      </button>
+    </div>
+  </section>
 
-        <div class="flex items-center gap-4 p-4">
-          <div class="grid h-14 w-14 place-items-center overflow-hidden rounded-xl bg-sand ring-1 ring-black/5">
-            <img src={withBase(r.image)} alt="" class="h-full w-full object-cover" loading="lazy" />
-          </div>
+  <section
+    id="recipes"
+    data-recipes-root
+    data-view="card"
+    class="space-y-6"
+  >
+    <div data-view-mode="list" class="grid gap-4">
+      {recipes.map((r) => (
+        <a
+          href={withBase(`recipes/${r.slug}/`)}
+          class="flex items-center justify-between gap-4 rounded-xl2 bg-white/70 p-4 shadow-soft ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-white"
+        >
           <div class="min-w-0">
-            <div class="font-serif text-2xl tracking-tight">{r.title}</div>
+            <div class="font-serif text-2xl tracking-tight text-ink">{r.title}</div>
             <div class="mt-1 text-xs text-neutral-600">
               {r.ingredients.length} ingredients • {r.directions.length} steps
             </div>
           </div>
-        </div>
-      </a>
-    ))}
+          <div class="hidden sm:grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-xl bg-sand ring-1 ring-black/5">
+            <img src={withBase(r.image)} alt="" class="h-full w-full object-cover" loading="lazy" />
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div data-view-mode="card" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {recipes.map((r) => (
+        <a
+          href={withBase(`recipes/${r.slug}/`)}
+          class="group relative overflow-hidden rounded-xl2 bg-white/70 shadow-soft ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-white"
+        >
+          <div class="absolute inset-0 opacity-0 transition group-hover:opacity-100" aria-hidden="true">
+            <div class="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-cocoa/10 blur-2xl"></div>
+          </div>
+
+          <div class="flex items-center gap-4 p-4">
+            <div class="grid h-14 w-14 place-items-center overflow-hidden rounded-xl bg-sand ring-1 ring-black/5">
+              <img src={withBase(r.image)} alt="" class="h-full w-full object-cover" loading="lazy" />
+            </div>
+            <div class="min-w-0">
+              <div class="font-serif text-2xl tracking-tight text-ink">{r.title}</div>
+              <div class="mt-1 text-xs text-neutral-600">
+                {r.ingredients.length} ingredients • {r.directions.length} steps
+              </div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div
+      data-view-mode="tile"
+      class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
+    >
+      {recipes.map((r) => (
+        <a
+          href={withBase(`recipes/${r.slug}/`)}
+          class="group overflow-hidden rounded-xl2 bg-white/70 shadow-soft ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-white"
+        >
+          <div class="relative aspect-[4/3] overflow-hidden bg-sand">
+            <img
+              src={withBase(r.image)}
+              alt=""
+              class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+          <div class="px-3 pb-3 pt-2">
+            <div class="font-serif text-lg tracking-tight text-ink">{r.title}</div>
+          </div>
+        </a>
+      ))}
+    </div>
   </section>
+
+  <script>
+    (() => {
+      const VIEW_KEY = "vj-kitchen:view";
+      const validViews = ["list", "card", "tile"];
+      const root = document.querySelector("[data-recipes-root]");
+      if (!root) return;
+
+      const buttons = Array.from(
+        document.querySelectorAll("[data-view-button]")
+      );
+      if (!buttons.length) return;
+
+      function applyView(view) {
+        if (!validViews.includes(view)) view = "card";
+        root.setAttribute("data-view", view);
+        try {
+          window.localStorage.setItem(VIEW_KEY, view);
+        } catch {
+          // ignore storage errors
+        }
+
+        buttons.forEach((btn) => {
+          const isActive = btn.getAttribute("data-view-button") === view;
+          btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+          btn.classList.toggle("is-active", isActive);
+        });
+      }
+
+      let initial = "card";
+      try {
+        const stored = window.localStorage.getItem(VIEW_KEY);
+        if (stored && validViews.includes(stored)) {
+          initial = stored;
+        }
+      } catch {
+        // ignore storage errors
+      }
+
+      applyView(initial);
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const view = btn.getAttribute("data-view-button");
+          if (!view) return;
+          applyView(view);
+        });
+      });
+    })();
+  </script>
 </Layout>
 

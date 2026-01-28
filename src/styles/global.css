@@ -25,3 +25,30 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+[data-recipes-root] [data-view-mode] {
+  display: none;
+}
+
+[data-recipes-root][data-view="list"] [data-view-mode="list"],
+[data-recipes-root][data-view="card"] [data-view-mode="card"],
+[data-recipes-root][data-view="tile"] [data-view-mode="tile"] {
+  display: grid;
+}
+
+.view-toggle-button {
+  border-radius: 9999px;
+  padding: 0.35rem 0.9rem;
+  font-weight: 500;
+  color: #4b4336;
+  background-color: rgba(244, 237, 228, 0.9);
+  border: none;
+  cursor: pointer;
+}
+
+.view-toggle-button.is-active {
+  background-color: #7b5a3a;
+  color: #fbf8f4;
+  box-shadow: 0 8px 18px rgba(20, 16, 10, 0.18);
+}
+
+
