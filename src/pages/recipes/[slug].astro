@@ -67,11 +67,11 @@ function stars(value: number) {
         <section class="mt-6 max-w-md">
           <h2 class="font-serif text-5xl tracking-tight text-cocoa">Rating</h2>
           <div class="mt-4 rounded-xl2 bg-sand/40 p-6 ring-1 ring-black/5">
-            <dl class="space-y-2 text-base">
+            <dl class="space-y-2 text-lg">
               {recipe.ratings.map((r) => (
                 <div class="flex items-center gap-2">
-                  <dt class="text-neutral-700">{r.name}:</dt>
-                  <dd class="font-serif text-xl tracking-wide text-cocoa" aria-label={`${r.value} out of 5`}>
+                  <dt class="text-neutral-800 font-medium">{r.name}:</dt>
+                  <dd class="font-serif text-2xl tracking-wide text-cocoa" aria-label={`${r.value} out of 5`}>
                     {stars(r.value)}
                   </dd>
                 </div>
